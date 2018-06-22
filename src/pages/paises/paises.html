@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Paises</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let pais of _paises.paises$ | async">
+      <!-- El signo $ indica que es observable y async hace que sea asincrónico suscribiendo en la vista (obtiene los datos del servidor) -->
+      <ion-avatar item-start>
+        <img src="{{pais.flag}}">
+      </ion-avatar>
+      <ion-label>{{pais.name}}</ion-label>
+      <ion-note item-end>{{pais.capital}}</ion-note>
+    </button>
+  </ion-list>
+</ion-content>
